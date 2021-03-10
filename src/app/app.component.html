@@ -1,0 +1,122 @@
+<h1>{{ name }}</h1>
+
+<!-- TODO: Search Cities Component -->
+<div>
+  <div class="display-flex">
+    <div>
+      <label> City 1</label>
+      <form [formGroup]="addressForm1">
+
+        <div>
+          <select name="country" formControlName="country">
+      <option value="">Select Country</option>
+      <option [value]="country.value" *ngFor="let country of countryList">{{country.label}}</option>
+    </select>
+        </div>
+        <div>
+          <select name="state" formControlName="state">
+      <option value="">Select State</option>
+      <option [value]="state.value" *ngFor="let state of stateList1">{{state.label}}</option>
+    </select>
+        </div>
+
+        <div>
+          <select name="city" formControlName="city">
+      <option value="">Select City</option>
+      <option [value]="city.value" *ngFor="let city of cityList1">{{city.label}}</option>
+    </select>
+        </div>
+      </form>
+    </div>
+    <div>
+      <label> City 2</label>
+      <form [formGroup]="addressForm2">
+
+        <div>
+          <select name="country" formControlName="country">
+      <option value="">Select Country</option>
+      <option [value]="country.value" *ngFor="let country of countryList">{{country.label}}</option>
+    </select>
+        </div>
+        <div>
+          <select name="state" formControlName="state">
+      <option value="">Select State</option>
+      <option [value]="state.value" *ngFor="let state of stateList2">{{state.label}}</option>
+    </select>
+        </div>
+
+        <div>
+          <select name="city" formControlName="city">
+      <option value="">Select City</option>
+      <option [value]="city.value" *ngFor="let city of cityList2">{{city.label}}</option>
+    </select>
+        </div>
+      </form>
+    </div>
+  </div>
+  <button (click)="compareCities()" [disabled]="!addressForm1.valid || !addressForm2.valid" type="submit">Submit</button>
+  <div *ngIf="city1Details">
+    <h2> City 1 Vs City 2 ({{distance}} Miles)</h2>
+
+    <table>
+      <tr>
+        <td>
+        <td>
+        <td> City 1
+        <td>
+        <td> City 2
+        <td>
+      </tr>
+      <tr>
+        <td>
+          Name
+        <td>
+        <td> {{city1Details.city}}
+        <td>
+        <td> {{city2Details.city}}
+        <td>
+      </tr>
+      <tr>
+        <td>
+          Country
+        <td>
+        <td> {{city1Details.country}}
+        <td>
+        <td> {{city2Details.country}}
+        <td>
+      </tr>
+      <tr>
+        <td>
+          Laltitude
+        <td>
+        <td> {{city1Details.latitude}}
+        <td>
+        <td> {{city2Details.latitude}}
+        <td>
+      </tr>
+      <tr>
+        <td>
+          Longitude
+        <td>
+        <td> {{city1Details.longitude}}
+        <td>
+        <td> {{city2Details.longitude}}
+        <td>
+      </tr>
+      <tr>
+        <td>
+          Time
+        <td>
+        <td> {{city1Details.ltime}}
+        <td>
+        <td> {{city2Details.time}}
+        <td>
+      </tr>
+    </table>
+
+  </div>
+</div>
+
+
+<!-- TODO: Header (h2) -->
+<!-- TODO: Table Component -->
